@@ -26,6 +26,18 @@ console.log(tab);
 }
 });
 buttonSearch.addEventListener('click',(event)=>{
-	let inputSearch = document.getElementById('infoSearch').value;
-	
+	let tablo = [];
+	let inputSearch = document.getElementById('infoSearch').value.toLowerCase();
+	let filt = document.getElementById('etapeSearch');
+	let longeur = inputSearch.length;
+	for(var i=0; i<tab.length; i++){
+		let element = tab[i];
+		let filter = element.indexOf(inputSearch);
+		console.log(filter);
+		if(filter === 0){
+			tablo.push(filter);
+			console.log(tablo);
+			document.getElementById('etapeSearch').innerHTML = tab;
+		}
+	}
 });
