@@ -1,22 +1,31 @@
-//function hello(person = 'Ju'){
-//	console.log('Bonjour' + person);
-//}
-//hello('Père Noel');
-//hello();
-let input = document.getElementById('info').value;
 let button = document.getElementById('valider');
+let buttonSearch = document.getElementById('search');
 let output = document.getElementById('infoAfficher');
-let tab = [];
+const tab = [];
 button.addEventListener('click',(event)=>{
-console.log('marche');
 let input = document.getElementById('info').value;
+
 let ul = document.getElementById('list');
-let li = document.createElement('li');
-ul.appendChild(li);
-li.innerHTML = input;
+
+
 if(input === ""){
-	li.innerHTML = 'Père Noel ! ';
+	output.innerHTML ='Bonjour Père Noël !';
 }
-tab.push(input);
+else{
+	let tableau = input;
+	tab.push(input);
+	let premier = tableau.charAt(0).toUpperCase();
+	let majuscul = premier + input.slice(1).toLowerCase();
+	let outputValue = document.getElementById('infoAfficher').value;
+	document.getElementById('info').innerHTML = majuscul;
+	document.getElementById('infoAfficher').appendChild(document.createElement('li')).innerHTML= majuscul;
+
+ul.innerHTML = 'Bonjour' + majuscul;
+
 console.log(tab);
+}
+});
+buttonSearch.addEventListener('click',(event)=>{
+	let inputSearch = document.getElementById('infoSearch').value;
+	
 });
